@@ -16,6 +16,13 @@ describe("Tamamon", function () {
     it("can have a maximum energy of 20", function () {
       expect(tamamon.MAX_ENERGY).toEqual(20);
     });
+
+    it("throws an error if the user tries to go beyond the max energy", function() {
+      for(var i = 10; i < 20; i += 2) {
+        tamamon.feed();
+      };
+      expect( function() { tamamon.checkMax() } ).toThrow(new Error("Full energy"));
+    });
   });
 
   describe("#feed", function () {

@@ -3,24 +3,36 @@
   <head>
     <meta charset="utf-8">
     <title>Tamamon タマモン</title>
+    <script src="src/tamamon.js"></script>
+    <script src="jquery.js"></script>
+
     <style>
     #animation img {
       display: none;
     }
     </style>
+
   </head>
+
+
+  <script src="src/tamamonjQuery.js"></script>
+
   <body>
-    <section>
-      <h1 id="energy"></h1>
-      <p>
+    <section id="display">
+      <p id="default-energy"></p>
+    </section>
+
+    <section id="energy">
         <button id="feed" value="feed" onClick="startFeedAnimation();"> Feed </button>
-      </p>
+    </section>
+
+    <section>
       <div id="animation">
         <img src="Images/Tamamon01.png" />
         <img src="Images/Tamamon02.png" />
       </div>
     </section>
-    <script src="tamamon.js"></script>
+
     <script>
         onload = function startAnimation() {
         var frames = document.getElementById("animation").children;

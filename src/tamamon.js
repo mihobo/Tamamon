@@ -4,5 +4,12 @@ function Tamamon() {
 };
 
 Tamamon.prototype.feed = function () {
+  this.checkMax();
   this.energy += 2;
+};
+
+Tamamon.prototype.checkMax = function () {
+  if (this.energy >= this.MAX_ENERGY ) {
+    throw new Error("Full energy");
+  };
 };
