@@ -10,6 +10,10 @@
     #animation img {
       display: none;
     }
+
+    #animationFeed img {
+      display: none;
+    }
     </style>
 
   </head>
@@ -25,13 +29,13 @@
     </section>
 
     <section id="energy">
-        <button id="feed" value="feed" onClick="startFeedAnimation();"> Feed </button>
+        <button id="feed" value="feed" onclick="startAnimationFeed()"> Feed </button>
     </section>
 
     <section>
       <div id="animation">
-        <img src="Images/Tamamon01.png" />
-        <img src="Images/Tamamon02.png" />
+        <img id="default01" src="Images/Tamamon01.png" />
+        <img id="default02" src="Images/Tamamon02.png" />
       </div>
     </section>
 
@@ -44,6 +48,15 @@
           frames[i % frameCount].style.display = "none";
           frames[++i % frameCount].style.display = "block";
         }, 800);
+      }
+
+      function startAnimationFeed() {
+        document.getElementById("default01").src = "Images/TamamonFeed01.png";
+        document.getElementById("default02").src = "Images/TamamonFeed02.png";
+        setTimeout(function() {
+          document.getElementById("default01").src = "Images/Tamamon01.png";
+          document.getElementById("default02").src = "Images/Tamamon02.png";
+        }, 4000);
       }
     </script>
   </body>
