@@ -21,7 +21,7 @@ describe("Tamamon", function () {
       for(var i = 10; i < 20; i += 2) {
         tamamon.feed();
       };
-      expect( function() { tamamon.checkMax() } ).toThrow(new Error("Full energy"));
+      expect( function() { tamamon.checkMax() } ).toThrow(new Error("Pet is at full energy"));
     });
   });
 
@@ -31,4 +31,14 @@ describe("Tamamon", function () {
       expect(tamamon.energy).toEqual(12);
     });
   });
+
+  describe("#showEnergyErrors", function () {
+    it("tells the user when the pet has full energy", function() {
+      for(var i = 10; i < 20; i += 2) {
+        tamamon.feed();
+      };
+      tamamon.showEnergyErrors();
+      expect(tamamon.energyMessage).toEqual("Full energy")
+    })
+  })
 });

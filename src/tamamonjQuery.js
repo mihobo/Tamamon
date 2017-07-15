@@ -6,9 +6,12 @@ $(document).ready(function() {
 
   var tamamon = new Tamamon;
   updateEnergy();
+  $("#energyMessage").text(tamamon.energyMessage);
 
   $('#feed').on('click', function() {
     tamamon.feed();
+    tamamon.showEnergyErrors();
     updateEnergy();
+    $('#energyMessage').text(tamamon.energyMessage);
   });
 });
