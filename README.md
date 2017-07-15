@@ -1,4 +1,4 @@
-# Tamamon 卵モン
+# Tamamon タマモン
 
 Task
 ----

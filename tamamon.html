@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tamamon タマモン</title>
+    <style>
+    #animation img {
+      display: none;
+    }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1 id="energy"></h1>
+      <p>
+        <button id="feed" value="feed" onClick="startFeedAnimation();"> Feed </button>
+      </p>
+      <div id="animation">
+        <img src="Images/Tamamon01.png" />
+        <img src="Images/Tamamon02.png" />
+      </div>
+    </section>
+    <script src="tamamon.js"></script>
+    <script>
+        onload = function startAnimation() {
+        var frames = document.getElementById("animation").children;
+        var frameCount = frames.length;
+        var i = 0;
+        setInterval(function() {
+          frames[i % frameCount].style.display = "none";
+          frames[++i % frameCount].style.display = "block";
+        }, 800);
+      }
+    </script>
+  </body>
+</html>
