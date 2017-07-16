@@ -1,6 +1,7 @@
 function Tamamon() {
   this.energy = 10,
   this.MAX_ENERGY = 20
+  this.MIN_ENERGY = 0
   this.energyMessage = "Happy happy happy"
 };
 
@@ -9,9 +10,20 @@ Tamamon.prototype.feed = function () {
   this.energy += 2;
 };
 
+Tamamon.prototype.play = function () {
+  this.checkMin();
+  this.energy -= 2;
+};
+
 Tamamon.prototype.checkMax = function () {
   if (this.energy >= this.MAX_ENERGY ) {
-    throw new Error("Pet is at full energy");
+    throw new Error("At full energy");
+  };
+};
+
+Tamamon.prototype.checkMin = function () {
+  if (this.energy <= this.MIN_ENERGY ) {
+    throw new Error("No more energy");
   };
 };
 

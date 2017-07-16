@@ -14,4 +14,11 @@ $(document).ready(function() {
     updateEnergy();
     $('#energyMessage').text(tamamon.energyMessage);
   });
+
+  $('#play').on('click', function() {
+    tamamon.play();
+    tamamon.showEnergyErrors();
+    updateEnergy();
+    $('#energyMessage').text(tamamon.energyMessage);
+  });
 });

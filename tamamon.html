@@ -10,10 +10,6 @@
     #animation img {
       display: none;
     }
-
-    #animationFeed img {
-      display: none;
-    }
     </style>
 
   </head>
@@ -30,6 +26,7 @@
 
     <section id="energy">
         <button id="feed" value="feed" onclick="startAnimationFeed()"> Feed </button>
+        <button id="play" value="play" onclick="startAnimationPlay()"> Play </button>
     </section>
 
     <section>
@@ -47,16 +44,25 @@
         setInterval(function() {
           frames[i % frameCount].style.display = "none";
           frames[++i % frameCount].style.display = "block";
-        }, 800);
+        }, 500);
       }
 
       function startAnimationFeed() {
-        document.getElementById("default01").src = "Images/TamamonFeed01.png";
-        document.getElementById("default02").src = "Images/TamamonFeed02.png";
+        document.getElementById("default01").src = "Images/TamamonFeed02.png";
+        document.getElementById("default02").src = "Images/TamamonFeed01.png";
         setTimeout(function() {
           document.getElementById("default01").src = "Images/Tamamon01.png";
           document.getElementById("default02").src = "Images/Tamamon02.png";
-        }, 4000);
+        }, 3000);
+      }
+
+      function startAnimationPlay() {
+        document.getElementById("default01").src = "Images/TamamonPlay01.png";
+        document.getElementById("default02").src = "Images/TamamonPlay02.png";
+        setTimeout(function() {
+          document.getElementById("default01").src = "Images/Tamamon01.png";
+          document.getElementById("default02").src = "Images/Tamamon02.png";
+        }, 3000);
       }
     </script>
   </body>
