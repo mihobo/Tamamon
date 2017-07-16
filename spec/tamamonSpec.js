@@ -21,7 +21,7 @@ describe("Tamamon", function () {
       for(var i = 10; i < 20; i += 2) {
         tamamon.feed();
       };
-      expect( function() { tamamon.checkMax() } ).toThrow(new Error("At full energy"));
+      expect( function() { tamamon.checkMax() } ).toThrow(new Error("Full energy"));
     });
   });
 
@@ -32,15 +32,39 @@ describe("Tamamon", function () {
     });
   });
 
-  describe("#showEnergyErrors", function () {
+  describe("#showEnergyNotifications", function () {
     it("tells the user when the pet has full energy", function() {
       for(var i = 10; i < 20; i += 2) {
         tamamon.feed();
       };
-      tamamon.showEnergyErrors();
-      expect(tamamon.energyMessage).toEqual("Full energy")
-    })
-  })
+      tamamon.showEnergyNotifications();
+      expect(tamamon.energyMessage).toEqual("At full energy");
+    });
+
+    it("tells the user when the pet is happy/at a good energy level", function() {
+      for(var i = 10; i < 18; i += 2) {
+        tamamon.feed();
+      };
+      tamamon.showEnergyNotifications();
+      expect(tamamon.energyMessage).toEqual("Happy happy happy");
+    });
+
+    it("tells the user when the pet is tired/hungry/low on energy", function() {
+      for(var i = 10; i > 2; i -= 2) {
+        tamamon.playtime();
+      };
+      tamamon.showEnergyNotifications();
+      expect(tamamon.energyMessage).toEqual("Tired...hungry...zZz");
+    });
+
+    it("tells the user when the pet is has no more energy", function() {
+      for(var i = 10; i > 0; i -= 2) {
+        tamamon.playtime();
+      };
+      tamamon.showEnergyNotifications();
+      expect(tamamon.energyMessage).toEqual("No energy left");
+    });
+  });
 
   describe("#MIN_ENERGY", function () {
     it("has a minimum energy of 0", function () {
@@ -49,15 +73,15 @@ describe("Tamamon", function () {
 
     it("throws an error if the user tries to go beyond the min energy", function() {
       for(var i = 10; i > 0; i -= 2) {
-        tamamon.play();
+        tamamon.playtime();
       };
       expect( function() { tamamon.checkMin() } ).toThrow(new Error("No more energy"));
     });
   });
 
-  describe("#play", function () {
+  describe("#playtime", function () {
     it("plays with the pet and decreases its energy by 2", function () {
-      tamamon.play();
+      tamamon.playtime();
       expect(tamamon.energy).toEqual(8);
     });
   });

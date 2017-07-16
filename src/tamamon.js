@@ -10,14 +10,14 @@ Tamamon.prototype.feed = function () {
   this.energy += 2;
 };
 
-Tamamon.prototype.play = function () {
+Tamamon.prototype.playtime = function () {
   this.checkMin();
   this.energy -= 2;
 };
 
 Tamamon.prototype.checkMax = function () {
   if (this.energy >= this.MAX_ENERGY ) {
-    throw new Error("At full energy");
+    throw new Error("Full energy");
   };
 };
 
@@ -27,14 +27,14 @@ Tamamon.prototype.checkMin = function () {
   };
 };
 
-Tamamon.prototype.showEnergyErrors = function () {
+Tamamon.prototype.showEnergyNotifications = function () {
   if (this.energy === this.MAX_ENERGY) {
-    this.energyMessage = "Full energy"
+    this.energyMessage = "At full energy"
   } else if (this.energy >= 10 && this.energy <= 18) {
     this.energyMessage = "Happy happy happy"
   } else if (this.energy > 0 && this.energy < 10) {
     this.energyMessage = "Tired...hungry...zZz"
   } else {
-    this.energyMessage = "No energy"
+    this.energyMessage = "No energy left"
   };
 };

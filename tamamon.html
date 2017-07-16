@@ -26,7 +26,7 @@
 
     <section id="energy">
         <button id="feed" value="feed" onclick="startAnimationFeed()"> Feed </button>
-        <button id="play" value="play" onclick="startAnimationPlay()"> Play </button>
+        <button id="playtime" value="play" onclick="startAnimationPlay()"> Play </button>
     </section>
 
     <section>
@@ -36,16 +36,5 @@
       </div>
     </section>
 
-    <script>
-        onload = function startAnimation() {
-        var frames = document.getElementById("animation").children;
-        var frameCount = frames.length;
-        var i = 0;
-        setInterval(function() {
-          frames[i % frameCount].style.display = "none";
-          frames[++i % frameCount].style.display = "block";
-        }, 500);
-      }
-    </script>
   </body>
 </html>
