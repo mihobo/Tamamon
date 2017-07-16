@@ -1,18 +1,24 @@
 function Tamamon() {
-  this.energy = 10,
+  this.energy = parseInt(localStorage.getItem('energy')) || 10;
   this.MAX_ENERGY = 20
   this.MIN_ENERGY = 0
-  this.energyMessage = "Happy happy happy"
+  this.energyMessage = localStorage.getItem('energyMessage') || "Happy happy happy";
 };
 
 Tamamon.prototype.feed = function () {
   this.checkMax();
-  this.energy += 2;
+  // this.energy += 2;
+  var newEnergy = (this.energy += 2);
+  localStorage.setItem('energy', newEnergy);
+  return newEnergy;
 };
 
 Tamamon.prototype.playtime = function () {
   this.checkMin();
-  this.energy -= 2;
+  // this.energy -= 2;
+  var newEnergy = (this.energy -= 2);
+  localStorage.setItem('energy', newEnergy);
+  return newEnergy;
 };
 
 Tamamon.prototype.checkMax = function () {
@@ -37,4 +43,7 @@ Tamamon.prototype.showEnergyNotifications = function () {
   } else {
     this.energyMessage = "No energy left"
   };
+  var newEnergyMessage = this.energyMessage;
+  localStorage.setItem('energyMessage', newEnergyMessage);
+  return newEnergyMessage;
 };
