@@ -7,7 +7,6 @@ function Tamamon() {
 
 Tamamon.prototype.feed = function () {
   this.checkMax();
-  // this.energy += 2;
   var newEnergy = (this.energy += 2);
   localStorage.setItem('energy', newEnergy);
   return newEnergy;
@@ -15,7 +14,6 @@ Tamamon.prototype.feed = function () {
 
 Tamamon.prototype.playtime = function () {
   this.checkMin();
-  // this.energy -= 2;
   var newEnergy = (this.energy -= 2);
   localStorage.setItem('energy', newEnergy);
   return newEnergy;
