@@ -9,15 +9,26 @@ $(document).ready(function startAnimation() {
       frames[i % frameCount].style.display = "none";
       frames[++i % frameCount].style.display = "block";
     }, 500);
-    reduceEnergyOverTime();
+    setInterval(reduceEnergy, 600000);
 
-  function reduceEnergyOverTime() {
-    setInterval(function() {
-      tamamon.playtime();
-      tamamon.showEnergyNotifications();
-      updateEnergy();
-      $('#energyMessage').text(tamamon.energyMessage);
-    }, 10000);
+  function reduceEnergy() {
+    tamamon.playtime();
+    tamamon.showEnergyNotifications();
+    energyColors();
+    updateEnergy();
+    $('#energyMessage').text(tamamon.energyMessage);
+  };
+
+  function energyColors() {
+    if (tamamon.energy === 20){
+      $("#default-energy").css("color", "lime");
+    } else if (tamamon.energy > 8 && tamamon.energy < 20) {
+      $("#default-energy").css("color", "green");
+    } else if (tamamon.energy > 0 && tamamon.energy <= 8){
+      $("#default-energy").css("color", "orange");
+    } else {
+      $("#default-energy").css("color", "red");
+    }
   };
 
   function updateEnergy() {
@@ -48,6 +59,7 @@ $(document).ready(function startAnimation() {
 
   updateEnergy();
   $("#energyMessage").text(tamamon.energyMessage);
+  energyColors();
 
   $('#feed').on('click', function startAnimationFeed() {
     if (tamamon.energy === tamamon.MAX_ENERGY) {
@@ -59,6 +71,7 @@ $(document).ready(function startAnimation() {
     };
     tamamon.feed();
     tamamon.showEnergyNotifications();
+    energyColors();
     updateEnergy();
     $('#energyMessage').text(tamamon.energyMessage);
   });
@@ -71,9 +84,6 @@ $(document).ready(function startAnimation() {
       playPet();
       returnToDefaultImage();
     };
-    tamamon.playtime();
-    tamamon.showEnergyNotifications();
-    updateEnergy();
-    $('#energyMessage').text(tamamon.energyMessage);
+    reduceEnergy();
   });
 });
