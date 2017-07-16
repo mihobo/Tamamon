@@ -11,26 +11,39 @@ $(document).ready(function startAnimation() {
     $('#default-energy').text(tamamon.energy);
   };
 
+  function defaultImage() {
+    setTimeout(function() {
+      $("#default01").prop('src', "Images/Tamamon01.png");
+      $("#default02").prop('src', "Images/Tamamon02.png");
+    }, 3000);
+  };
+
+  function shakeHead() {
+    $("#default01").prop('src', "Images/TamamonShakeHead01.png");
+    $("#default02").prop('src', "Images/TamamonShakeHead02.png");
+  };
+
+  function feedPet() {
+    $("#default01").prop('src', "Images/TamamonFeed02.png");
+    $("#default02").prop('src', "Images/TamamonFeed01.png");
+  };
+
+  function playPet() {
+    $("#default01").prop('src', "Images/TamamonPlay01.png");
+    $("#default02").prop('src', "Images/TamamonPlay02.png");
+  };
+
   var tamamon = new Tamamon;
   updateEnergy();
   $("#energyMessage").text(tamamon.energyMessage);
 
   $('#feed').on('click', function startAnimationFeed() {
-
     if (tamamon.energy === tamamon.MAX_ENERGY) {
-      $("#default01").prop('src', "Images/TamamonShakeHead01.png");
-      $("#default02").prop('src', "Images/TamamonShakeHead02.png");
-      setTimeout(function() {
-        $("#default01").prop('src', "Images/Tamamon01.png");
-        $("#default02").prop('src', "Images/Tamamon02.png");
-      }, 3000);
+      shakeHead();
+      defaultImage();
     } else {
-      $("#default01").prop('src', "Images/TamamonFeed02.png");
-      $("#default02").prop('src', "Images/TamamonFeed01.png");
-      setTimeout(function() {
-        $("#default01").prop('src', "Images/Tamamon01.png");
-        $("#default02").prop('src', "Images/Tamamon02.png");
-      }, 3000);
+      feedPet();
+      defaultImage();
     };
     tamamon.feed();
     tamamon.showEnergyNotifications();
@@ -39,21 +52,12 @@ $(document).ready(function startAnimation() {
   });
 
   $('#playtime').on('click', function startAnimationPlay() {
-
     if (tamamon.energy === tamamon.MIN_ENERGY) {
-      $("#default01").prop('src', "Images/TamamonShakeHead01.png");
-      $("#default02").prop('src', "Images/TamamonShakeHead02.png");
-      setTimeout(function() {
-        $("#default01").prop('src', "Images/Tamamon01.png");
-        $("#default02").prop('src', "Images/Tamamon02.png");
-      }, 3000);
+      shakeHead();
+      defaultImage();
     } else {
-      $("#default01").prop('src', "Images/TamamonPlay01.png");
-      $("#default02").prop('src', "Images/TamamonPlay02.png");
-      setTimeout(function() {
-        $("#default01").prop('src', "Images/Tamamon01.png");
-        $("#default02").prop('src', "Images/Tamamon02.png");
-      }, 3000);
+      playPet();
+      defaultImage();
     };
     tamamon.playtime();
     tamamon.showEnergyNotifications();
