@@ -59,6 +59,7 @@ Features
 * When full or tired, a shaking head animation is shown
 * Energy messages change depending on Tamamon's energy levels
 * Energy number changes in color depending on the number
+* Every 10 minutes, Tamamon's energy goes down by 2 (state is saved on local drive)
 
 Screenshots
 -----------
