@@ -61,8 +61,8 @@ Features
 * Energy number changes in color depending on the number
 * Every 10 minutes, Tamamon's energy goes down by 2 (state is saved on local drive)
 
-Screenshots
------------
+Screenshots(v.1.0)
+------------------
 Default energy for Tamamon is 10:
 ![Imgur](http://i.imgur.com/rafbVxN.png)
 
@@ -78,11 +78,16 @@ When you play with Tamamon:
 When Tamamon has no energy and you try to play with it:
 ![Imgur](http://i.imgur.com/nD91Y9X.png)
 
+v(1.1) - Tamamon has been updated with a pixelated/8bit retro style look - screenshots coming soon.
+
+
 Web-link
 --------
 < website link to play Tamamon coming soon >
 
 Additional Comments
 -------------------
-Bonus features still to be incorporated into the app.
+All Jasmine spec tests pass (100%)  
+
+Bonus features still to be incorporated into the app.  
 Watch this space!

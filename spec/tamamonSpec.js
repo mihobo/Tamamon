@@ -4,6 +4,7 @@ describe("Tamamon", function () {
 
   beforeEach(function () {
     tamamon = new Tamamon();
+    tamamon.energy = 10
   });
 
   describe("#energy", function () {
